@@ -2,20 +2,21 @@ import { Injectable } from "@angular/core";
 import * as moment from "moment-timezone";
 import { Timestamp } from "./timestamp";
 import { Observable } from "rxjs/Observable";
-import { of } from "rxjs/observable/of";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class TimestampService {
-  currentTS: Timestamp;
+  private currentTS = new BehaviorSubject<Timestamp>(null);
+
   constructor() {
-    this.setCurrent();
-    // setInterval(() => {
-    //   this.setCurrent();
-    // }, 5000);
+    this.currentTS.next(this.setCurrent());
+    setInterval(() => {
+      this.currentTS.next(this.setCurrent());
+    }, 5000);
   }
 
-  private setCurrent() {
-    this.currentTS = this.buildTime(
+  private setCurrent(): Timestamp {
+    return this.buildTime(
       moment()
         .tz("UTC")
         .unix()
@@ -23,8 +24,12 @@ export class TimestampService {
   }
 
   private buildTime(timestamp) {
-    const current = moment().set(timestamp).tz(moment.tz.guess());
-    const utc = moment().set(timestamp).tz('UTC');
+    const current = moment()
+      .set(timestamp)
+      .tz(moment.tz.guess());
+    const utc = moment()
+      .set(timestamp)
+      .tz("UTC");
     return {
       current: this.getTimeObj(current),
       utc: this.getTimeObj(utc)
@@ -41,12 +46,7 @@ export class TimestampService {
     };
   }
 
-  getCurrentTime(): Timestamp {
-    return this.currentTS;
-  }
-
-  getCurrentTimestamp(): Observable<Timestamp> {
-    this.setCurrent();
-    return of(this.currentTS);
+  getCurrentTime(): Observable<Timestamp> {
+    return this.currentTS.asObservable();
   }
 }
