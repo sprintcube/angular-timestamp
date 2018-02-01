@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 
@@ -9,6 +11,7 @@ import { CurrentComponent } from './timestamp/current/current.component';
 import { ConverterComponent } from './timestamp/converter/converter.component';
 import { TimestampService } from './timestamp/timestamp.service';
 
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,11 @@ import { TimestampService } from './timestamp/timestamp.service';
     ConverterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [TimestampService],
   bootstrap: [AppComponent]

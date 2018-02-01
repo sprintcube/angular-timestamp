@@ -1,37 +1,114 @@
 <div class="content">
-  <div class="field has-addons">
-    <div class="control is-expanded">
-      <input class="input" type="text" placeholder="Enter unix timestamp">
+  <form [formGroup]="tsForm" (ngSubmit)='onTsSubmit()'>
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input
+          class="input"
+          type="text"
+          placeholder="Enter unix timestamp"
+          formControlName="timestamp"
+          id="timestamp"
+          name="timestamp">
+          <p
+          *ngIf="!tsForm.get('timestamp').valid && tsForm.get('timestamp').touched"
+          class="help is-danger">
+              Please enter valid timestamp value!
+            </p>
+      </div>
+      <div class="control">
+        <button class="button is-info" type="submit">
+          Convert
+        </button>
+      </div>
     </div>
-    <div class="control">
-      <a class="button is-info">
-        Convert
-      </a>
+  </form>
+  <hr>
+  <form [formGroup]="dtForm" (ngSubmit)='onDtSubmit()'>
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input
+          class="input"
+          type="text"
+          [owlDateTime]="dt"
+          [owlDateTimeTrigger]="dt"
+          placeholder="Select date and time"
+          formControlName="datetime"
+          id="datetime"
+          name="datetime">
+          <owl-date-time #dt></owl-date-time>
+          <p
+          *ngIf="!dtForm.get('datetime').valid && dtForm.get('datetime').touched"
+          class="help is-danger">
+              Please select valid date and time value!
+            </p>
+      </div>
+      <div class="control">
+        <button class="button is-info" type="submit">
+          Convert
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="field has-addons">
-    <div class="control">
-      <input class="input" type="text" placeholder="Year">
+  </form>
+  <!-- <form #tsForm="ngForm" (ngSubmit) = 'onTsSubmit()'>
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input
+          class="input"
+          type="text"
+          placeholder="Enter unix timestamp"
+          id="timestamp"
+          ngModel
+          name="timestamp"
+          required>
+      </div>
+      <div class="control">
+        <button class="button is-info" type="submit">
+          Convert
+        </button>
+      </div>
     </div>
-    <div class="control">
-      <input class="input" type="text" placeholder="Month">
+  </form> -->
+  <!-- <form #dtForm="ngForm" (ngSubmit) = 'onDtSubmit()'>
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input
+          class="input"
+          type="text"
+          [min]='minDate'
+          [owlDateTime]="dt"
+          [owlDateTimeTrigger]="dt"
+          placeholder="Enter unix timestamp"
+          id="datetime"
+          ngModel
+          name="datetime"
+          required>
+          <owl-date-time #dt></owl-date-time>
+      </div>
+      <div class="control">
+        <button class="button is-info" type="submit">
+          Convert
+        </button>
+      </div>
     </div>
-    <div class="control">
-      <input class="input" type="text" placeholder="Day">
-    </div>
-    <div class="control">
-      <input class="input" type="text" placeholder="Hours">
-    </div>
-    <div class="control">
-      <input class="input" type="text" placeholder="Minutes">
-    </div>
-    <div class="control">
-      <input class="input" type="text" placeholder="Seconds">
-    </div>
-    <div class="control">
-      <a class="button is-info">
-        Convert
-      </a>
-    </div>
-  </div>
+  </form> -->
 </div>
+<div class="box" *ngIf="isSubmitted">
+    <div class="content">
+      <p class="title is-2">Timestamp</p>
+      <p class="subtitle is-3">{{convertedTimestamp.current.current}}</p>
+      <hr>
+      <p class="title is-4">Timezone</p>
+      <p class="subtitle is-5">{{convertedTimestamp.utc.tz}}</p>
+      <p class="title is-4">Date & Time</p>
+      <p class="subtitle is-5">{{convertedTimestamp.utc.fullDateTime}}</p>
+      <p class="title is-4">ISO 8601</p>
+      <p class="subtitle is-5">{{convertedTimestamp.utc.iso8601}}</p>
+      <hr>
+      <p class="title is-4">Timezone</p>
+      <p class="subtitle is-5">{{convertedTimestamp.current.tz}}</p>
+      <p class="title is-4">Date & Time</p>
+      <p class="subtitle is-5">{{convertedTimestamp.current.fullDateTime}}</p>
+      <p class="title is-4">ISO 8601</p>
+      <p class="subtitle is-5">{{convertedTimestamp.current.iso8601}}</p>
+    </div>
+  </div>
