@@ -41,7 +41,7 @@ export class TimestampService {
       tz: momentObj.tz(),
       current: momentObj.unix(),
       fullDate: momentObj.format('MMMM Do YYYY'),
-      fullDateTime: momentObj.format('MMMM Do YYYY, h:mm:ss A'),
+      fullDateTime: momentObj.format('MMM Do YYYY, h:mm:ss A'),
       iso8601: momentObj.format()
     };
   }

@@ -1,20 +1,34 @@
-<div class="box">
-  <div class="content">
-    <p class="title is-2">Current Timestamp</p>
-    <p class="subtitle is-3">{{currentTimestamp.current.current}}</p>
-    <hr>
-    <p class="title is-4">Timezone</p>
-    <p class="subtitle is-5">{{currentTimestamp.utc.tz}}</p>
-    <p class="title is-4">Date & Time</p>
-    <p class="subtitle is-5">{{currentTimestamp.utc.fullDateTime}}</p>
-    <p class="title is-4">ISO 8601</p>
-    <p class="subtitle is-5">{{currentTimestamp.utc.iso8601}}</p>
-    <hr>
-    <p class="title is-4">Timezone</p>
-    <p class="subtitle is-5">{{currentTimestamp.current.tz}}</p>
-    <p class="title is-4">Date & Time</p>
-    <p class="subtitle is-5">{{currentTimestamp.current.fullDateTime}}</p>
-    <p class="title is-4">ISO 8601</p>
-    <p class="subtitle is-5">{{currentTimestamp.current.iso8601}}</p>
+<div class="columns is-mobile is-centered">
+  <div class="column is-half is-narrow">
+    <div class="content is-large has-text-centered has-text-grey">
+      <hr> Current timestamp is
+      <b>{{currentTimestamp.current.current}}</b>
+    </div>
+  </div>
+</div>
+<div class="columns is-mobile">
+  <div class="column">
+    <div class="content is-large has-text-centered">
+      <h5 class="has-text-grey">Timezone
+        <br>
+        <b>{{currentTimestamp.utc.tz}}</b>
+      </h5>
+      <h6 class="has-text-grey">Date & Time
+        <br>
+        <b>{{currentTimestamp.utc.fullDateTime}}</b>
+      </h6>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content is-large has-text-centered">
+      <h5 class="has-text-grey">Timezone
+        <br>
+        <b>{{currentTimestamp.current.tz}}</b>
+      </h5>
+      <h6 class="has-text-grey">Date & Time
+        <br>
+        <b>{{currentTimestamp.current.fullDateTime}}</b>
+      </h6>
+    </div>
   </div>
 </div>
