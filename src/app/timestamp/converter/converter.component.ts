@@ -13,6 +13,7 @@ export class ConverterComponent implements OnInit {
   tsForm: FormGroup;
   dtForm: FormGroup;
   isSubmitted = false;
+  dataInput;
   inputTime;
   convertedTimestamp;
   minDate = new Date(1970, 1, 1, 0, 0, 0);
@@ -33,7 +34,9 @@ export class ConverterComponent implements OnInit {
       this.isSubmitted = false;
       this.tsForm.reset();
     } else {
+      this.dtForm.reset();
       this.inputTime = this.tsForm.value.timestamp;
+      this.dataInput = this.inputTime;
       this.convertedTimestamp = this.ts.getConvertedUnixTime(this.inputTime);
       this.isSubmitted = true;
     }
@@ -44,7 +47,9 @@ export class ConverterComponent implements OnInit {
       this.isSubmitted = false;
       this.dtForm.reset();
     } else {
+      this.tsForm.reset();
       this.inputTime = moment(this.dtForm.value.datetime).unix();
+      this.dataInput = moment(this.dtForm.value.datetime).format('M/D/YYYY, h:mm A');
       this.convertedTimestamp = this.ts.getConvertedUnixTime(this.inputTime);
       this.isSubmitted = true;
     }
