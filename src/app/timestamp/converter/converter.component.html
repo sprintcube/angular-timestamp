@@ -33,35 +33,36 @@
   </div>
 </div>
 <div *ngIf="isSubmitted">
-  <div class="columns is-mobile is-centered">
+  <div class="columns is-centered">
     <div class="column is-half is-narrow">
       <div class="content is-large has-text-centered">
-        Your result for <b>{{dataInput}}</b> is
+        Your result for
+        <b>{{dataInput}}</b> is
       </div>
     </div>
   </div>
-  <div class="columns is-mobile">
-    <div class="column">
+  <div class="columns is-multiline">
+    <div class="column is-half">
       <div class="content is-large has-text-centered">
         <h5>Timezone
           <br>
-          <strong>{{convertedTimestamp.utc.tz}}</strong>
+          <b>{{convertedTimestamp.utc.tz}}</b>
         </h5>
         <h6>Date & Time
           <br>
-          <strong>{{convertedTimestamp.utc.fullDateTime}}</strong>
+          <b>{{convertedTimestamp.utc.fullDateTime}}</b>
         </h6>
       </div>
     </div>
-    <div class="column">
+    <div class="column is-half">
       <div class="content is-large has-text-centered">
         <h5>Timezone
           <br>
-          <strong>{{convertedTimestamp.current.tz}}</strong>
+          <b>{{convertedTimestamp.current.tz}}</b>
         </h5>
         <h6>Date & Time
           <br>
-          <strong>{{convertedTimestamp.current.fullDateTime}}</strong>
+          <b>{{convertedTimestamp.current.fullDateTime}}</b>
         </h6>
       </div>
     </div>
