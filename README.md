@@ -1,27 +1,27 @@
-# Timestamp
+# Unix Timestamp Converter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
+A demo project using Angular to convert any unix timestamp value to human readable date and time.
+
+It shows current unix timestamp and converts it to readable format in UTC and user's local timezone. Also it allows to enter the timestamp value manually or to select a date time from the picker and converts it to readable format.
+
+## Angular Concepts
+In this demo, following concepts are used.
+
+* Components
+* Services
+* Observables
+* Interfaces
+* Reactive Forms
+
+## Libraries
+This demo uses following third party libraries.
+
+* [moment-timezone](https://momentjs.com/timezone/) - for date manipulation
+* [ng-pick-datetime](https://github.com/DanielYKPan/date-time-picker) - for nice datetime picker
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To install it on your local server, clone this repository and run `npm install`. Once the installation is completed,
+run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
