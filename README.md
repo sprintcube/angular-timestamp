@@ -1,8 +1,8 @@
 # Unix Timestamp Converter
 
-A demo project using Angular to convert any unix timestamp value to human readable date and time.
+A demo project using Angular to convert any Unix timestamp value to human readable date and time.
 
-It shows current unix timestamp and converts it to readable format in UTC and user's local timezone. Also it allows to enter the timestamp value manually or to select a date time from the picker and converts it to readable format.
+It shows current Unix timestamp and converts it to a readable format in UTC and user's local timezone. Also, it allows to enter the timestamp value manually or to select a date time from the picker and converts it to a readable format.
 
 ## Angular Concepts
 In this demo, following concepts are used.
@@ -14,7 +14,7 @@ In this demo, following concepts are used.
 * Reactive Forms
 
 ## Libraries
-This demo uses following third party libraries.
+This demo uses following third-party libraries.
 
 * [moment-timezone](https://momentjs.com/timezone/) - for date manipulation
 * [ng-pick-datetime](https://github.com/DanielYKPan/date-time-picker) - for nice datetime picker
